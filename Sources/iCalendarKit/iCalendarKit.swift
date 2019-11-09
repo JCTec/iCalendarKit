@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class Calendar{
+final class iCalendar{
     static let gregorian = "GREGORIAN"
     static let publish = "PUBLISH"
     static let version: Double = 2.0
@@ -18,7 +18,7 @@ final class Calendar{
         
     private var eventsInCalendar: [Event]! = [Event]()
     
-    init(prodid: Prodid = Prodid(), calscale: String = Calendar.gregorian, method: String = Calendar.publish, events: [Event]? = nil) {
+    init(prodid: Prodid = Prodid(), calscale: String = iCalendar.gregorian, method: String = iCalendar.publish, events: [Event]? = nil) {
         self.prodid = prodid
         self.calscale = calscale
         self.method = method
@@ -30,8 +30,8 @@ final class Calendar{
     
     init(prodid: Prodid, events: [Event]? = nil) {
         self.prodid = prodid
-        self.calscale = Calendar.gregorian
-        self.method = Calendar.publish
+        self.calscale = iCalendar.gregorian
+        self.method = iCalendar.publish
         
         if let ev = events{
             eventsInCalendar = ev
@@ -59,10 +59,10 @@ final class Calendar{
         
         var str = "BEGIN:VCALENDAR\r\n"
         
-        str += "VERSION:\(Calendar.version)\r\n"
+        str += "VERSION:\(iCalendar.version)\r\n"
         str += "PRODID:\(prodid.generate())\r\n"
-        str += "CALSCALE:\(calscale ?? Calendar.gregorian)\r\n"
-        str += "METHOD:\(method ?? Calendar.publish)\r\n"
+        str += "CALSCALE:\(calscale ?? iCalendar.gregorian)\r\n"
+        str += "METHOD:\(method ?? iCalendar.publish)\r\n"
         
         for event in eventsInCalendar{
             str += event.vevent()

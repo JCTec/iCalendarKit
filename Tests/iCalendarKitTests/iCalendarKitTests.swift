@@ -46,7 +46,7 @@ final class iCalendarKitTests: XCTestCase {
         END:VCALENDAR
         """
         
-        let ical = Calendar(prodid: Prodid(title: "Genera JCTech", name: "JCTech Juan Carlos", code: "ES-MX"))
+        let ical = iCalendar(prodid: Prodid(title: "Genera JCTech", name: "JCTech Juan Carlos", code: "ES-MX"))
 
         let event = Event(summary: "Abraham Lincoln", dtstart: "20191109T005058Z".toEventDate(), dtend: "20191109T005058Z".toEventDate(), dtstamp: "20191109T005058Z".toEventDate())
         event.UID = "D57DAFB2-B170-49D1-A363-D4E75055DF8C"

@@ -27,8 +27,8 @@ public final class Event{
     
     public init(UID: String? = UUID().uuidString, summary: String, description: String? = nil, status: String? = Event.confirmed, transp: Transp? = .transparent, dtstart: Date, dtend: Date, dtstamp: Date, categories: String? = nil) {
         self.UID = UID
-        self.summary = summary
-        self.description = description
+        self.summary = summary.safe()
+        self.description = description?.safe()
         self.status = status
         self.transp = transp
         self.dtstart = dtstart

@@ -29,7 +29,7 @@ public struct Prodid{
             return uuidString()
         }
         
-        return "-//\(title!)//\(name!)//\(code ?? "EN")"
+        return "-//\(title!.safe(length: 25))//\(name!.safe(length: 25))//\(code ?? "EN")".safe()
     }
     
     private func uuidString() -> String{

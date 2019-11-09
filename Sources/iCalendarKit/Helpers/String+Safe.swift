@@ -9,7 +9,7 @@ import Foundation
 
 extension String{
     
-    func safe(length: Int = 70, trailing: String = "…") -> String {
+    func safe(length: Int = 60, trailing: String = "…") -> String {
         if self.count > length {
             return self.prefix(length) + trailing
         } else {

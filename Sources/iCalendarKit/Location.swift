@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Location{
+public struct Location{
     let latitude: Float!
     let longitude: Float!
     

@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class Event{
+public final class Event{
     static let confirmed = "CONFIRMED"
     
     var summary: String!

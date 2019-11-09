@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Prodid{
+public struct Prodid{
     let title: String?
     let name: String?
     let code: String?

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Transp{
+public enum Transp{
     case transparent
     case opaque
     

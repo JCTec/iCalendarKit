@@ -12,13 +12,13 @@ public final class iCalendar{
     static let publish = "PUBLISH"
     static let version: Double = 2.0
 
-    var prodid: Prodid!
-    var calscale: String!
-    var method: String!
+    public var prodid: Prodid!
+    public var calscale: String!
+    public var method: String!
         
     private var eventsInCalendar: [Event]! = [Event]()
     
-    init(prodid: Prodid = Prodid(), calscale: String = iCalendar.gregorian, method: String = iCalendar.publish, events: [Event]? = nil) {
+    public init(prodid: Prodid = Prodid(), calscale: String = iCalendar.gregorian, method: String = iCalendar.publish, events: [Event]? = nil) {
         self.prodid = prodid
         self.calscale = calscale
         self.method = method
@@ -28,7 +28,7 @@ public final class iCalendar{
         }
     }
     
-    init(prodid: Prodid, events: [Event]? = nil) {
+    public init(prodid: Prodid, events: [Event]? = nil) {
         self.prodid = prodid
         self.calscale = iCalendar.gregorian
         self.method = iCalendar.publish
@@ -38,24 +38,24 @@ public final class iCalendar{
         }
     }
     
-    func setEvents(_ events: [Event]){
+    public func setEvents(_ events: [Event]){
         eventsInCalendar.removeAll()
         eventsInCalendar = events
     }
     
-    func addEvent(_ event: Event){
+    public func addEvent(_ event: Event){
         eventsInCalendar.append(event)
     }
     
-    func removeEvent(_ event: Event){
+    public func removeEvent(_ event: Event){
         eventsInCalendar = eventsInCalendar.filter { $0.UID != event.UID }
     }
     
-    func removeAll(){
+    public func removeAll(){
         eventsInCalendar.removeAll()
     }
     
-    func calendarString() -> String{
+    public func calendarString() -> String{
         
         var str = "BEGIN:VCALENDAR\r\n"
         
@@ -73,7 +73,7 @@ public final class iCalendar{
         return str
     }
     
-    func data() -> Data?{
+    public func data() -> Data?{
         return calendarString().data(using: .utf8)
     }
 }

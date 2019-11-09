@@ -10,22 +10,22 @@ import Foundation
 public final class Event{
     static let confirmed = "CONFIRMED"
     
-    var summary: String!
-    var UID: String!
-    var sequence: Int! = 0
-    var status: String!
-    var transp: Transp!
-    //var rRule: String
-    var dtstart: Date!
-    var dtend: Date!
-    var dtstamp: Date!
-    var categories: String?
-    var location: String?
-    var geo: Location?
-    var description: String?
-    var url: URL?
+    public var summary: String!
+    public var UID: String!
+    public var sequence: Int! = 0
+    public var status: String!
+    public var transp: Transp!
+    //public var rRule: String
+    public var dtstart: Date!
+    public var dtend: Date!
+    public var dtstamp: Date!
+    public var categories: String?
+    public var location: String?
+    public var geo: Location?
+    public var description: String?
+    public var url: URL?
     
-    init(UID: String? = UUID().uuidString, summary: String, description: String? = nil, status: String? = Event.confirmed, transp: Transp? = .transparent, dtstart: Date, dtend: Date, dtstamp: Date, categories: String? = nil) {
+    public init(UID: String? = UUID().uuidString, summary: String, description: String? = nil, status: String? = Event.confirmed, transp: Transp? = .transparent, dtstart: Date, dtend: Date, dtstamp: Date, categories: String? = nil) {
         self.UID = UID
         self.summary = summary
         self.description = description
@@ -37,7 +37,7 @@ public final class Event{
         self.categories = categories
     }
     
-    func vevent() -> String{
+    public func vevent() -> String{
         var str = "BEGIN:VEVENT\r\n"
 
         str += "SUMMARY:\(summary ?? "")\r\n"

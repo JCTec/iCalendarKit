@@ -11,7 +11,7 @@ public enum Transp{
     case transparent
     case opaque
     
-    func toString() -> String {
+    public func toString() -> String {
         switch self {
             case .transparent:
                 return "TRANSP:TRANSPARENT\r\n"

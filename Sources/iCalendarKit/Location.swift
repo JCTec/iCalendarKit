@@ -11,7 +11,7 @@ public struct Location{
     let latitude: Float!
     let longitude: Float!
     
-    func toString() -> String{
+    public func toString() -> String{
         return "\(latitude ?? Float(0.0));\(longitude ?? Float(0.0))"
     }
 }

@@ -12,19 +12,19 @@ public struct Prodid{
     let name: String?
     let code: String?
     
-    init(title: String, name: String, code: String? = nil) {
+    public init(title: String, name: String, code: String? = nil) {
         self.title = title
         self.name = name
         self.code = code
     }
     
-    init() {
+    public init() {
         self.title = nil
         self.name = nil
         self.code = nil
     }
     
-    func generate() -> String{
+    public func generate() -> String{
         if title == nil || name == nil{
             return uuidString()
         }

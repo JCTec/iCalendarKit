@@ -8,9 +8,9 @@
 import Foundation
 
 public final class iCalendar{
-    static let gregorian = "GREGORIAN"
-    static let publish = "PUBLISH"
-    static let version: Double = 2.0
+    public static let gregorian = "GREGORIAN"
+    public static let publish = "PUBLISH"
+    public static let version: Double = 2.0
 
     public var prodid: Prodid!
     public var calscale: String!

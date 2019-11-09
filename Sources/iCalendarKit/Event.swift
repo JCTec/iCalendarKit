@@ -8,7 +8,7 @@
 import Foundation
 
 public final class Event{
-    static let confirmed = "CONFIRMED"
+    public static let confirmed = "CONFIRMED"
     
     public var summary: String!
     public var UID: String!

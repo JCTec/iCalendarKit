@@ -1,12 +1,16 @@
+branches:
+  only:
+    - master
+
 os:
   - osx
+
 language: swift
 osx_image: xcode11
-env:
-  - PROJECT_NAME=iCalendarKit
+
 install:
-  - ls 
-  - (cd $PROJECT_NAME && swift package update)
+  - swift package update
+
 script:
-  - (swift build)
-  - (swift test)
+  - swift build
+  - swift test

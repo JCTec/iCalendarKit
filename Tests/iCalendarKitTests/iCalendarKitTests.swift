@@ -1,8 +1,25 @@
+/*
+    XplainAPI
+    iCalendarKitTests.swift
+ 
+    Copyright (C) 2019 JC_Tec_
+    Juan Carlos Estévez Rodríguez
+    juancarlos_tec@protonmail.ch
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, at version 3 of the License.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+*/
+
 import XCTest
 @testable import iCalendarKit
 
 extension String{
-    
     func toEventDate() -> Date{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd'T'HHmmss'Z'"
@@ -20,11 +37,7 @@ extension String{
 }
 
 final class iCalendarKitTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        
+    func testICalendarKit() {
         let testVCalendar =
         
         """
@@ -55,12 +68,27 @@ final class iCalendarKitTests: XCTestCase {
         
         let calendarString = ical.calendarString()
         
-        print(calendarString)
-
         XCTAssertEqual(calendarString.trim(), testVCalendar.trim())
+    }
+    
+    func testAutomaticProdid() {
+        let ical = iCalendar(prodid: Prodid())
+        let icalTwo = iCalendar(prodid: Prodid())
+
+        let event = Event(summary: "Abraham Lincoln", dtstart: "20191109T005058Z".toEventDate(), dtend: "20191109T005058Z".toEventDate(), dtstamp: "20191109T005058Z".toEventDate())
+        event.UID = "D57DAFB2-B170-49D1-A363-D4E75055DF8C"
+
+        ical.addEvent(event)
+        icalTwo.addEvent(event)
+
+        let calendarString = ical.calendarString()
+        let calendarStringTwo = ical.calendarString()
+
+        XCTAssertNotEqual(calendarString.trim(), calendarStringTwo.trim())
     }
 
     static var allTests = [
-        ("testExample", testExample),
+        ("testICalendarKit", testICalendarKit),
+        ("testAutomaticProdid", testAutomaticProdid),
     ]
 }

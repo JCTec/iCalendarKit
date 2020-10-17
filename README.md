@@ -1,4 +1,4 @@
-# iCalendarKit
+# iCalendarKit [![Build Status](https://travis-ci.org/JCTec/iCalendarKit.svg?branch=master)](https://travis-ci.org/JCTec/iCalendarKit)
 
 iCalendar (RFC 5545) implementation in Swift created by Juan Carlos Estévez Rodríguez.
 
